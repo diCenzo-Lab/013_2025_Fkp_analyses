@@ -23,7 +23,7 @@ perl Scripts/modifyFasta.pl HMMsearchHits/allHits.fasta > HMMsearchHits/allHits_
 sort -u HMMsearchHits/allHits_modified.fasta > HMMsearchHits/allHits_temp.faa # get just the unique hits
 perl Scripts/splitFasta.pl HMMsearchHits/allHits_temp.faa > HMMsearchHits/allHits.faa # modify fasta format
 
-# Perform the HMMscan screens for pf05830
+# Perform the HMMscan screens
 hmmscan --cpu 16 hmmDatabaseFiles/converted_combined.hmm HMMsearchHits/allHits.faa > HMMscan/allHits.txt # run the hmmscan analysis
 perl Scripts/parseHMMscan.pl HMMscan/allHits.txt > HMMscanParsed/allHits.csv # parse the hmmscan output file
 perl Scripts/HMMscanTop3Hits.pl HMMscanParsed/allHits.csv > HMMscanTop/allHits_3.csv # find the top three hits for each protein
